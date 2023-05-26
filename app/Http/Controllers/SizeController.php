@@ -24,7 +24,7 @@ public function store(Request $request){
         $record=Size::insert([
         'product_id' => $request->product_id,
        'title'=>$request->name,
-       'price'=>$request->location,
+       'price'=>$request->price,
        'created_at' => Carbon::now(),
             ]);
 return response()->json(['success' => 'true', 'message' => 'Vendor Created Successfully !!!', 'Vendor' => $record]);
@@ -40,7 +40,7 @@ return response()->json(['success' => 'true', 'message' => 'Vendor Created Succe
                 $record=Size::where(['id' => $request->id])->update([
                     'product_id' => $request->product_id,
                     'title'=>$request->name,
-                    'price'=>$request->location,
+                    'price'=>$request->price,
                   'updated_at' => Carbon::now(),
                 ]);
               return response()->json(['success' => 'true', 'message' => 'Vendor record updated Successfully !!!', 'Vendor' => $record]);

@@ -7,6 +7,7 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
+use App\Http\Controllers\DrinksController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -42,3 +43,8 @@ Route::post('/size/create', [SizeController::class, 'store']);
 Route::post('/size/edit', [SizeController::class, 'edit']);
 Route::post('/size/update', [SizeController::class, 'update']);
 Route::post('/size/delete', [SizeController::class, 'destroy']);
+
+Route::post('/drinks/create', [DrinksController::class, 'store']);
+Route::post('/drinks/edit', [DrinksController::class, 'edit']);
+Route::post('/drinks/update', [DrinksController::class, 'update']);
+Route::post('/drinks/delete', [DrinksController::class, 'destroy']);
