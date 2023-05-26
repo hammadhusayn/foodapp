@@ -8,6 +8,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\DrinksController;
+use App\Http\Controllers\ToppingController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -48,3 +49,8 @@ Route::post('/drinks/create', [DrinksController::class, 'store']);
 Route::post('/drinks/edit', [DrinksController::class, 'edit']);
 Route::post('/drinks/update', [DrinksController::class, 'update']);
 Route::post('/drinks/delete', [DrinksController::class, 'destroy']);
+
+Route::post('/topping/create', [ToppingController::class, 'store']);
+Route::post('/topping/edit', [ToppingController::class, 'edit']);
+Route::post('/topping/update', [ToppingController::class, 'update']);
+Route::post('/topping/delete', [ToppingController::class, 'destroy']);
