@@ -23,13 +23,13 @@ public function store(Request $request){;
        'price'=>$request->price,
        'created_at' => Carbon::now(),
             ]);
-return response()->json(['success' => 'true', 'message' => 'Vendor Created Successfully !!!', 'Vendor' => $record]);
+return response()->json(['success' => 'true', 'message' => 'Topping Created Successfully !!!', 'Topping' => $record]);
     }
     public function edit(Request $request)
         {
           $record = Topping::findOrfail($request->id);
           
-          return response()->json(['success' => 'true', 'vendor' => $record]);
+          return response()->json(['success' => 'true', 'Topping' => $record]);
         }
         public function update(Request $request){
            
@@ -38,12 +38,12 @@ return response()->json(['success' => 'true', 'message' => 'Vendor Created Succe
                 'price'=>$request->price,
               'updated_at' => Carbon::now(),
             ]);
-          return response()->json(['success' => 'true', 'message' => 'Vendor record updated Successfully !!!', 'Vendor' => $record]);
+          return response()->json(['success' => 'true', 'message' => 'Topping record updated Successfully !!!', 'Topping' => $record]);
         }
         public function destroy(Request $request)
 {
 $id = $request->id;
 $record = Topping::findOrfail($id)->forceDelete();
-return response(['success' => 'true', 'message' => 'Vendor record has been Deleted Succesfully !!!']);
+return response(['success' => 'true', 'message' => 'Topping record has been Deleted Succesfully !!!']);
 }
 }

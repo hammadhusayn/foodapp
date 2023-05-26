@@ -45,13 +45,13 @@ public function store(Request $request){
        'created_at' => Carbon::now(),
             ]);
         }
-return response()->json(['success' => 'true', 'message' => 'Vendor Created Successfully !!!', 'Vendor' => $record]);
+return response()->json(['success' => 'true', 'message' => 'Product Created Successfully !!!', 'Product' => $record]);
 }
 public function edit(Request $request)
         {
           $record = Product::findOrfail($request->id);
           
-          return response()->json(['success' => 'true', 'vendor' => $record]);
+          return response()->json(['success' => 'true', 'Product' => $record]);
         }
         public function update(Request $request){
             if ($request->file('image')) {
@@ -79,12 +79,12 @@ public function edit(Request $request)
                   'updated_at' => Carbon::now(),
                 ]);
               }
-              return response()->json(['success' => 'true', 'message' => 'Vendor record updated Successfully !!!', 'Vendor' => $record]);
+              return response()->json(['success' => 'true', 'message' => 'Product record updated Successfully !!!', 'Product' => $record]);
             }
             public function destroy(Request $request)
   {
     $id = $request->id;
     $record = Product::findOrfail($id)->forceDelete();
-    return response(['success' => 'true', 'message' => 'Vendor record has been Deleted Succesfully !!!']);
+    return response(['success' => 'true', 'message' => 'Product record has been Deleted Succesfully !!!']);
   }
 }

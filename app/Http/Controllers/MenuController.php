@@ -22,14 +22,14 @@ class MenuController extends Controller
            'created_at' => Carbon::now(),
                 ]);
         
-        return response()->json(['success' => 'true', 'message' => 'Vendor Created Successfully !!!', 'Vendor' => $record]);
+        return response()->json(['success' => 'true', 'message' => 'Menu Created Successfully !!!', 'Menu' => $record]);
         }
 
         public function edit(Request $request)
         {
           $record = Menu::findOrfail($request->id);
           
-          return response()->json(['success' => 'true', 'vendor' => $record]);
+          return response()->json(['success' => 'true', 'Menu' => $record]);
         }
 
         public function update(Request $request){
@@ -40,12 +40,12 @@ class MenuController extends Controller
                   'updated_at' => Carbon::now(),
                 ]);
               
-              return response()->json(['success' => 'true', 'message' => 'Vendor record updated Successfully !!!', 'Vendor' => $record]);
+              return response()->json(['success' => 'true', 'message' => 'Menu record updated Successfully !!!', 'Vendor' => $record]);
             }
             public function destroy(Request $request)
   {
     $id = $request->id;
     $record = Menu::findOrfail($id)->forceDelete();
-    return response(['success' => 'true', 'message' => 'Vendor record has been Deleted Succesfully !!!']);
+    return response(['success' => 'true', 'message' => 'Menu record has been Deleted Succesfully !!!']);
   }
 }
