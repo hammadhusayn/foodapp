@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,3 +28,11 @@ Route::post('/vendor/create', [VendorController::class, 'store']);
 Route::post('/vendor/edit', [VendorController::class, 'edit']);
 Route::post('/vendor/update', [VendorController::class, 'update']);
 Route::post('/vendor/delete', [VendorController::class, 'destroy']);
+Route::post('/menu/create', [MenuController::class, 'store']);
+Route::post('/menu/edit', [MenuController::class, 'edit']);
+Route::post('/menu/update', [MenuController::class, 'update']);
+Route::post('/menu/delete', [MenuController::class, 'destroy']);
+Route::post('/product/create', [ProductController::class, 'store']);
+Route::post('/product/edit', [ProductController::class, 'edit']);
+Route::post('/product/update', [ProductController::class, 'update']);
+Route::post('/product/delete', [ProductController::class, 'destroy']);
