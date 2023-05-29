@@ -54,3 +54,7 @@ Route::post('/topping/create', [ToppingController::class, 'store']);
 Route::post('/topping/edit', [ToppingController::class, 'edit']);
 Route::post('/topping/update', [ToppingController::class, 'update']);
 Route::post('/topping/delete', [ToppingController::class, 'destroy']);
+
+Route::post('/forget-password', [ForgetPasswordController::class, 'verify_email']);
+Route::post('/forget-password/verify', [ForgetPasswordController::class, 'verify_otp']);
+Route::post('/forget-password/update', [ToppingController::class, 'store']);
