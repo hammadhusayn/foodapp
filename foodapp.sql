@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2023 at 11:01 PM
+-- Generation Time: May 29, 2023 at 07:25 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -50,6 +50,20 @@ CREATE TABLE `failed_jobs` (
   `payload` longtext NOT NULL,
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forget_passwords`
+--
+
+CREATE TABLE `forget_passwords` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `otp` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -116,7 +130,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (181, '2023_05_26_193929_create_products_table', 2),
 (182, '2023_05_26_201712_create_sizes_table', 3),
 (183, '2023_05_26_203256_create_drinks_table', 4),
-(184, '2023_05_26_205646_create_toppings_table', 5);
+(184, '2023_05_26_205646_create_toppings_table', 5),
+(185, '2023_05_29_170723_create_forget_passwords_table', 6);
 
 -- --------------------------------------------------------
 
@@ -292,6 +307,14 @@ CREATE TABLE `toppings` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `toppings`
+--
+
+INSERT INTO `toppings` (`id`, `title`, `price`, `created_at`, `updated_at`) VALUES
+(1, NULL, '100', '2023-05-26 16:08:28', NULL),
+(2, 'extra topping', '200', '2023-05-26 16:15:12', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -317,6 +340,14 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `business_name`, `first_name`, `last_name`, `business_type`, `phone`, `email`, `own_riders`, `location`, `password`, `type`, `status`, `cuisine_types`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, NULL, NULL, NULL, NULL, NULL, 'abir_bloomberg@friendsitsolutions.com', NULL, NULL, '$2y$10$2CAz64pzpTusfNT3dl7KhejY7.MmswBfxMaQxkFMDpMS5QKc5soNW', NULL, NULL, NULL, NULL, NULL, '2023-05-29 08:25:15', '2023-05-29 08:25:15'),
+(3, NULL, NULL, NULL, NULL, NULL, 'abir_blodfdfdomberg@friendsitsolutions.com', NULL, NULL, '$2y$10$gjKOq1Z1eL0e/RwZ/DnyXe42dF126pljAh9wN4FC2jY/oLbAHR9HG', NULL, NULL, NULL, NULL, NULL, '2023-05-29 08:27:06', '2023-05-29 08:27:06');
 
 -- --------------------------------------------------------
 
@@ -351,6 +382,12 @@ ALTER TABLE `drinks`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `forget_passwords`
+--
+ALTER TABLE `forget_passwords`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `logins`
@@ -472,6 +509,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `forget_passwords`
+--
+ALTER TABLE `forget_passwords`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `logins`
 --
 ALTER TABLE `logins`
@@ -487,7 +530,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`
@@ -529,13 +572,13 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT for table `toppings`
 --
 ALTER TABLE `toppings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `vendors`
