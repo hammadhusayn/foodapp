@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\DrinksController;
 use App\Http\Controllers\ToppingController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -58,3 +59,5 @@ Route::post('/topping/delete', [ToppingController::class, 'destroy']);
 Route::post('/forget-password', [ForgetPasswordController::class, 'verify_email']);
 Route::post('/forget-password/verify', [ForgetPasswordController::class, 'verify_otp']);
 Route::post('/forget-password/update', [ToppingController::class, 'store']);
+
+Route::post('/search', [SearchController::class, 'search']);

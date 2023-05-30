@@ -31,7 +31,7 @@ public function store(Request $request){
         'menu_id' => $request->menu_id,
        'title'=>$request->name,
        'description'=>$request->description,
-       'price'=>$request->location,
+       'price'=>$request->price,
        'image'=>$image_name,
        'created_at' => Carbon::now(),
        ]);
@@ -41,7 +41,7 @@ public function store(Request $request){
         'menu_id' => $request->menu_id,
        'title'=>$request->name,
        'description'=>$request->description,
-       'price'=>$request->location,
+       'price'=>$request->price,
        'created_at' => Carbon::now(),
             ]);
         }
@@ -75,7 +75,7 @@ public function edit(Request $request)
                     'menu_id' => $request->menu_id,
                     'title'=>$request->name,
                     'description'=>$request->description,
-                    'price'=>$request->location,
+                    'price'=>$request->price,
                   'updated_at' => Carbon::now(),
                 ]);
               }
