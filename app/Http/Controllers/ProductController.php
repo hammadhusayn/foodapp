@@ -49,11 +49,13 @@ return response()->json(['success' => 'true', 'message' => 'Product Created Succ
 }
 public function edit(Request $request)
         {
-          $record = Product::findOrfail($request->id);
+          $id=$request->id;
+          $record = Product::findOrfail($id);
           
           return response()->json(['success' => 'true', 'Product' => $record]);
         }
         public function update(Request $request){
+          $id=$request->id;
             if ($request->file('image')) {
                 $image = $request->file('image');
                 $name_gen = hexdec(uniqid());
@@ -62,7 +64,7 @@ public function edit(Request $request)
                 $up_location = 'Backend/images/';
                 $last_img = $up_location . $image_name;
                 $image->move($up_location, $image_name);
-                $record=Product::where(['id' =>  $request->id])->update([
+                $record=Product::where(['id' =>  $id])->update([
                     'menu_id' => $request->menu_id,
                     'title'=>$request->name,
                     'description'=>$request->description,

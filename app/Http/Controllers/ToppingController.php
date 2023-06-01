@@ -19,7 +19,7 @@ class ToppingController extends Controller
 public function store(Request $request){;
     
         $record=Topping::insert([
-       'title'=>$request->name,
+       'title'=>$request->title,
        'price'=>$request->price,
        'created_at' => Carbon::now(),
             ]);
@@ -27,13 +27,14 @@ return response()->json(['success' => 'true', 'message' => 'Topping Created Succ
     }
     public function edit(Request $request)
         {
-          $record = Topping::findOrfail($request->id);
+          $id=$request->id;
+          $record = Topping::findOrfail($id);
           
           return response()->json(['success' => 'true', 'Topping' => $record]);
         }
         public function update(Request $request){
-           
-            $record=Topping::where(['id' => $request->id])->update([
+           $id=$request->id;
+            $record=Topping::where(['id' => $id])->update([
                 'title'=>$request->name,
                 'price'=>$request->price,
               'updated_at' => Carbon::now(),

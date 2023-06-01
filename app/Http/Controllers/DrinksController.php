@@ -19,7 +19,7 @@ class DrinksController extends Controller
 public function store(Request $request){
     
         $record=Drinks::insert([
-       'title'=>$request->name,
+       'title'=>$request->title,
        'size'=>$request->size,
        'price'=>$request->price,
        'created_at' => Carbon::now(),
@@ -28,15 +28,16 @@ return response()->json(['success' => 'true', 'message' => 'Drinks Created Succe
     }
     public function edit(Request $request)
         {
-          $record = Drinks::findOrfail($request->id);
+          $id=$request->id;
+          $record = Drinks::findOrfail($id);
           
           return response()->json(['success' => 'true', 'Drinks' => $record]);
         }
         public function update(Request $request){
-           
-            $record=Drinks::where(['id' => $request->id])->update([
+           $id=$request->id;
+            $record=Drinks::where(['id' => $id])->update([
                 'size' => $request->size,
-                'title'=>$request->name,
+                'title'=>$request->title,
                 'price'=>$request->price,
               'updated_at' => Carbon::now(),
             ]);

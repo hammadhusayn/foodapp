@@ -27,14 +27,16 @@ class MenuController extends Controller
 
         public function edit(Request $request)
         {
-          $record = Menu::findOrfail($request->id);
+          $id=$request->id;
+          $record = Menu::findOrfail($id);
           
           return response()->json(['success' => 'true', 'Menu' => $record]);
         }
 
         public function update(Request $request){
+          $id=$request->id;
             
-                $record=Menu::where(['id' => $request->id])->update([
+                $record=Menu::where(['id' => $id])->update([
                     'vendor_id' => $request->vendor_id,
                     'title'=>$request->name,
                   'updated_at' => Carbon::now(),

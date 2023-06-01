@@ -31,6 +31,7 @@ return response()->json(['success' => 'true', 'message' => 'Size record Created 
     }
     public function edit(Request $request)
         {
+          $id=$request->id;
           $record = Size::findOrfail($request->id);
           
           return response()->json(['success' => 'true', 'size' => $record]);
