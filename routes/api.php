@@ -11,6 +11,7 @@ use App\Http\Controllers\DrinksController;
 use App\Http\Controllers\ToppingController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ForgetPasswordController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -71,6 +72,6 @@ Route::post('/cart/delete', [CartController::class, 'destroy']);
 
 Route::post('/forget-password', [ForgetPasswordController::class, 'verify_email']);
 Route::post('/forget-password/verify', [ForgetPasswordController::class, 'verify_otp']);
-Route::post('/forget-password/update', [ToppingController::class, 'store']);
+Route::post('/forget-password/update', [ForgetPasswordController::class, 'store']);
 
 Route::post('/search', [SearchController::class, 'search']);
